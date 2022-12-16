@@ -1,0 +1,24 @@
+{
+  "welcomeFile": "welcome.txt",
+  "eol": "\r\n",
+  "prompt": "ciscoasa> ",
+  "commands": [
+    {
+      "command": "",
+      "response": ""
+    },
+    {
+      "command": "help",
+      "response": "\r\n\r\n  clear       Reset functions\r\n  enable      Turn on privileged commands\r\n  exit        Exit from the EXEC\r\n  help        Interactive help for commands\r\n  login       Log in as a particular user\r\n  logout      Exit from the EXEC\r\n  no          Negate a command or set its defaults\r\n  ping        Send echo messages\r\n  quit        Exit from the EXEC\r\n  show        Show running system information\r\n  traceroute  Trace route to destination\r\n"
+    },
+    {
+      "command": "\\?",
+      "response": "\r\n\r\n  clear       Reset functions\r\n  enable      Turn on privileged commands\r\n  exit        Exit from the EXEC\r\n  help        Interactive help for commands\r\n  login       Log in as a particular user\r\n  logout      Exit from the EXEC\r\n  no          Negate a command or set its defaults\r\n  ping        Send echo messages\r\n  quit        Exit from the EXEC\r\n  show        Show running system information\r\n  traceroute  Trace route to destination\r\n"
+    },
+    {
+      "command": "\\r\\n",
+      "response": "crlf"
+    }
+  ],
+  "notFound": "\r\n          ^\r\nERROR: % Invalid input detected at '^' marker.\r\n{{command}}\r\n"
+}

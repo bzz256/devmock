@@ -1,0 +1,44 @@
+plugins {
+    id 'java'
+}
+
+group 'net'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.11
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation(
+            'org.apache.logging.log4j:log4j-api:2.19.0',
+            'org.apache.logging.log4j:log4j-core:2.19.0',
+            'org.apache.logging.log4j:log4j-slf4j-impl:2.19.0',
+            'com.github.tomakehurst:wiremock:2.27.2',
+            'commons-cli:commons-cli:1.5.0',
+            'com.google.code.gson:gson:2.10',
+            'com.github.spullara.mustache.java:compiler:0.9.10')
+    implementation('org.apache.sshd:apache-sshd:2.3.0') {
+        exclude group: 'org.slf4j', module: 'slf4j-jdk14'
+        exclude group: 'org.apache.sshd', module: 'sshd-netty'
+        exclude group: 'org.apache.sshd', module: 'sshd-mina'
+    }
+    testImplementation 'junit:junit:4.13.2'
+}
+
+task fatJar(type: Jar) {
+    manifest {
+        attributes(
+                'Main-Class': 'net.devmock.Main',
+                'Multi-Release': 'true'
+        )
+    }
+
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+
+    with jar
+}
